@@ -5,37 +5,37 @@
       
       <!-- Personal Info Section -->
       <div class="footer-section">
-        <h3>{{ name }}</h3>
-        <p class="footer-description">{{ shortBio }}</p>
+        <h3>{{ personalInfoService.getPersonalInfo().name }}</h3>
+        <p class="footer-description">{{ personalInfoService.getPersonalInfo().shortBio }}</p>
         <div class="contact-info">
-          <p><i class="icon">📧</i> {{ email }}</p>
-          <p><i class="icon">📍</i> {{ location }}</p>
-          <p><i class="icon">📱</i> {{ phone }}</p>
+          <p><i class="icon">📧</i> {{ personalInfoService.getPersonalInfo().email }}</p>
+          <p><i class="icon">📍</i> {{ personalInfoService.getPersonalInfo().location }}</p>
+          @if (personalInfoService.getPersonalInfo().phone) {
+            <p><i class="icon">📱</i> {{ personalInfoService.getPersonalInfo().phone }}</p>
+          }
         </div>
       </div>
 
       <!-- Quick Links Section -->
       <div class="footer-section">
-        <h4>Quick Links</h4>
+        <h4>{{ textService.getDictionary().headings.quickLinks }}</h4>
         <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#skills">Skills & Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li *ngFor="let link of textService.getFooterQuickLinks()">
+            <a [href]="link.href">{{ link.label }}</a>
+          </li>
         </ul>
       </div>
 
       <!-- Social Links Section -->
       <div class="footer-section">
-        <h4>Connect With Me</h4>
+        <h4>{{ textService.getDictionary().headings.connectWithMe }}</h4>
         <div class="social-links">
-          <a *ngFor="let social of socialLinks" 
+          <a *ngFor="let social of personalInfoService.getSocialLinks()" 
              [href]="social.url" 
              target="_blank" 
              rel="noopener noreferrer"
              class="social-link"
-             [title]="'Visit my ' + social.name">
+             [title]="textService.getSocialVisitText(social.name)">
             <span class="social-icon">{{ social.icon }}</span>
             <span class="social-name">{{ social.name }}</span>
           </a>
@@ -44,15 +44,15 @@
 
       <!-- Additional Info Section -->
       <div class="footer-section">
-        <h4>More Info</h4>
+        <h4>{{ textService.getDictionary().headings.moreInfo }}</h4>
         <ul class="footer-links">
-          <li><a [href]="resumeLink" download>Download Resume</a></li>
-          <li><span class="availability">{{ availabilityStatus }}</span></li>
+          <li><a [href]="personalInfoService.getPersonalInfo().resumeLink" download>{{ textService.getDictionary().buttons.downloadResume }}</a></li>
+          <li><span class="availability">{{ personalInfoService.getPersonalInfo().availabilityStatus }}</span></li>
         </ul>
         <div class="tech-stack">
-          <p class="small-text">This site built with:</p>
+          <p class="small-text">{{ textService.getDictionary().headings.techStack }}</p>
           <div class="tech-badges">
-            <span class="tech-badge" *ngFor="let tech of techStack">{{ tech }}</span>
+            <span class="tech-badge" *ngFor="let tech of personalInfoService.getPersonalInfo().techStack">{{ tech }}</span>
           </div>
         </div>
       </div>
@@ -61,8 +61,8 @@
     <!-- Footer Bottom -->
     <div class="footer-bottom">
       <div class="footer-bottom-content">
-        <p>&copy; {{ currentYear }} {{ name }}. All rights reserved.</p>
-        <p class="footer-note">{{ footerNote }}</p>
+        <p>{{ textService.getCopyrightText(personalInfoService.getCurrentYear(), personalInfoService.getPersonalInfo().name) }}</p>
+        <p class="footer-note">{{ personalInfoService.getPersonalInfo().footerNote }}</p>
       </div>
     </div>
   </div>

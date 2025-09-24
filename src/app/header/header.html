@@ -3,14 +3,14 @@
     <div class="nav-container">
       <!-- Logo/Brand -->
       <div class="nav-brand">
-        <a href="#home" class="brand-link">{{ brandName }}</a>
+        <a href="#home" class="brand-link">{{ personalInfoService.getBasicInfo().name }}</a>
       </div>
 
       <!-- Mobile menu button -->
       <button class="mobile-menu-btn" 
               [class.active]="isMobileMenuOpen" 
               (click)="toggleMobileMenu()"
-              aria-label="Toggle navigation menu">
+              [attr.aria-label]="textService.getAriaLabels().toggleNavigationMenu">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -18,7 +18,7 @@
 
       <!-- Navigation Menu -->
       <ul class="nav-menu" [class.active]="isMobileMenuOpen">
-        <li class="nav-item" *ngFor="let item of navigationItems">
+        <li class="nav-item" *ngFor="let item of textService.getNavigationItems()">
           <a [href]="'#' + item.id" 
              class="nav-link" 
              [class.active]="activeSection === item.id"

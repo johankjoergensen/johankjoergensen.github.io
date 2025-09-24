@@ -1,6 +1,57 @@
-# Test
+# Personal Portfolio Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+A modern, responsive personal website/semi-CV built with Angular 19, featuring a clean design and professional layout.
+
+## 🎯 Key Features
+
+### Centralized Content Management
+- **Personal Information Service**: All personal details (name, email, location, social links, etc.) managed in one place
+- **Text Dictionary Service**: All text strings (menu items, buttons, labels) centralized for easy updates and future i18n support
+
+### Professional Design
+- Clean, modern interface with consistent styling
+- Responsive design that works on all devices
+- CSS custom properties for easy theme customization
+- Professional color scheme and typography
+
+### Developer-Friendly Architecture
+- Angular 19 with standalone components
+- TypeScript for type safety
+- SCSS for advanced styling
+- Modular component structure
+
+## 📁 Project Structure
+
+```
+src/app/
+├── header/           # Navigation header component
+├── hero/             # Main hero/about section  
+├── footer/           # Site footer component
+└── services/
+    ├── personal-info.service.ts    # Centralized personal information
+    └── text-dictionary.service.ts  # Centralized text management
+```
+
+## 🚀 Quick Setup
+
+### 1. Update Your Personal Information
+Edit `src/app/services/personal-info.service.ts` to add your details:
+- Name, job title, location
+- Contact information
+- Social media links
+- Tech stack and skills
+- Profile photo
+
+See `PERSONAL-INFO-GUIDE.md` for detailed instructions.
+
+### 2. Customize Text and Wording
+Edit `src/app/services/text-dictionary.service.ts` to customize:
+- Navigation menu items
+- Button labels and text
+- Section headings
+- Placeholder content
+
+See `TEXT-DICTIONARY-GUIDE.md` for detailed instructions.
 
 ## Development server
 

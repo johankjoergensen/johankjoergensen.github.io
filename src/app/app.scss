@@ -1,21 +1,7 @@
-// Main app styles
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+// App-specific styles (global styles are in src/styles.scss)
 
 .main-content {
-  margin-top: 70px; // Account for fixed header
+  margin-top: var(--header-height); // Account for fixed header
 }
 
 // Placeholder sections styling
@@ -24,12 +10,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1rem;
-  background: #f8f9fa;
-  border-bottom: 1px solid #e9ecef;
+  padding: var(--space-4xl) var(--space-md);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
 
   &:nth-child(even) {
-    background: white;
+    background: var(--bg-primary);
   }
 
   .placeholder-content {
@@ -37,15 +23,15 @@ html {
     max-width: 600px;
 
     h2 {
-      font-size: 2.5rem;
-      color: #333;
-      margin-bottom: 1rem;
+      // Using global h2 styles
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
     }
 
     p {
       font-size: 1.1rem;
-      color: #666;
-      line-height: 1.6;
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
     }
   }
 }
@@ -53,7 +39,7 @@ html {
 // Remove margin-top from hero section since it's the first section
 #home {
   .hero-section {
-    margin-top: -70px; // Offset the header height
-    padding-top: calc(2rem + 70px); // Add header height back to padding
+    margin-top: calc(-1 * var(--header-height)); // Offset the header height
+    padding-top: calc(var(--space-xl) + var(--header-height)); // Add header height back to padding
   }
 }

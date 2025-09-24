@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PersonalInfoService } from '../services/personal-info.service';
+import { TextDictionaryService } from '../services/text-dictionary.service';
 
 interface NavigationItem {
   id: string;
@@ -13,18 +15,12 @@ interface NavigationItem {
   styleUrl: './header.scss'
 })
 export class Header implements OnInit, OnDestroy {
-  protected brandName = 'Your Name'; // Replace with your name or brand
+  protected personalInfoService = inject(PersonalInfoService);
+  protected textService = inject(TextDictionaryService);
+  
   protected isMobileMenuOpen = false;
   protected activeSection = 'home';
   protected isScrolled = false;
-
-  protected navigationItems: NavigationItem[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'skills', label: 'Skills & Experience' },
-    { id: 'projects', label: 'Project Portfolio' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'contact', label: 'Contact' }
-  ];
 
   @HostListener('window:scroll')
   onWindowScroll() {

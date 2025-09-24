@@ -2,13 +2,13 @@
   min-height: 80vh;
   display: flex;
   align-items: center;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  padding: var(--space-xl) var(--space-md);
+  background: var(--gradient-primary);
+  color: var(--text-white-soft);
 }
 
 .hero-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   width: 100%;
 }
@@ -16,43 +16,45 @@
 .hero-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+  gap: var(--space-3xl);
   align-items: center;
 }
 
 .hero-text {
   .hero-name {
+    // Using global h1 but overriding color for hero section
     font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    line-height: 1.1;
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-sm);
+    line-height: var(--leading-tight);
+    color: var(--text-white-soft);
   }
 
   .hero-title {
     font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-    color: #e2e8f0;
+    font-weight: var(--font-normal);
+    margin-bottom: var(--space-lg);
+    opacity: var(--opacity-medium);
+    color: var(--text-white-soft);
   }
 
   .hero-description {
     font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    opacity: 0.95;
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-xl);
+    opacity: var(--opacity-high);
   }
 }
 
 .hero-details {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
 
   p {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-sm);
     margin: 0;
     font-size: 0.95rem;
   }
@@ -65,39 +67,27 @@
 
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-md);
   flex-wrap: wrap;
-}
 
-.btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  display: inline-block;
-
-  &.btn-primary {
-    background-color: white;
-    color: #667eea;
+  // Using global button classes with hero-specific overrides
+  .btn-primary {
+    background-color: var(--text-white-soft);
+    color: var(--primary-color);
     
     &:hover {
-      background-color: #f8fafc;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background-color: var(--bg-secondary);
     }
   }
 
-  &.btn-secondary {
+  .btn-secondary {
     background-color: transparent;
-    color: white;
-    border-color: white;
+    color: var(--text-white-soft);
+    border-color: var(--text-white-soft);
     
     &:hover {
-      background-color: white;
-      color: #667eea;
-      transform: translateY(-2px);
+      background-color: var(--text-white-soft);
+      color: var(--primary-color);
     }
   }
 }
@@ -110,31 +100,31 @@
   .image-placeholder {
     width: 280px;
     height: 280px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    background: var(--bg-overlay);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 4px solid rgba(255, 255, 255, 0.2);
+    border: 4px solid var(--border-lighter);
     backdrop-filter: blur(10px);
     
     img {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
+      border-radius: var(--radius-full);
       object-fit: cover;
     }
 
     .placeholder-icon {
       font-size: 4rem;
-      margin-bottom: 1rem;
-      opacity: 0.7;
+      margin-bottom: var(--space-md);
+      opacity: var(--opacity-very-low);
     }
 
     p {
       margin: 0;
-      opacity: 0.8;
+      opacity: var(--opacity-low);
       font-size: 0.9rem;
     }
   }
@@ -145,7 +135,7 @@
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2rem;
+    gap: var(--space-xl);
   }
 
   .hero-text {
@@ -161,7 +151,7 @@
   .hero-details {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-md);
   }
 
   .hero-image {
@@ -180,7 +170,7 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 1rem 0.5rem;
+    padding: var(--space-md) var(--space-sm);
   }
 
   .hero-text {
@@ -191,11 +181,6 @@
     .hero-description {
       font-size: 1rem;
     }
-  }
-
-  .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
   }
 
   .hero-image .image-placeholder {
