@@ -18,6 +18,7 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "index": "src/index.html",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -62,7 +63,9 @@
               "outputHashing": "all",
               "outputPath": "docs",
               "baseHref": "/",
-              "deployUrl": "/"
+              "deployUrl": "/",
+              "prerender": false,
+              "ssr": false
             },
             "development": {
               "optimization": false,

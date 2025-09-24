@@ -1,0 +1,59 @@
+// Main app styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.main-content {
+  margin-top: 70px; // Account for fixed header
+}
+
+// Placeholder sections styling
+.section-placeholder {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+
+  &:nth-child(even) {
+    background: white;
+  }
+
+  .placeholder-content {
+    text-align: center;
+    max-width: 600px;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.6;
+    }
+  }
+}
+
+// Remove margin-top from hero section since it's the first section
+#home {
+  .hero-section {
+    margin-top: -70px; // Offset the header height
+    padding-top: calc(2rem + 70px); // Add header height back to padding
+  }
+}

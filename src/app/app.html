@@ -1,16 +1,40 @@
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+<app-header></app-header>
+
+<main class="main-content">
+  <section id="home">
+    <app-hero></app-hero>
+  </section>
+
+  <!-- Placeholder sections for navigation -->
+  <section id="skills" class="section-placeholder">
+    <div class="placeholder-content">
+      <h2>Skills & Experience</h2>
+      <p>This section will contain your skills, experience, and professional background.</p>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="social-links">
-        
-      </div>
+  </section>
+
+  <section id="projects" class="section-placeholder">
+    <div class="placeholder-content">
+      <h2>Project Portfolio</h2>
+      <p>This section will showcase your projects and work samples.</p>
     </div>
-  </div>
+  </section>
+
+  <section id="blog" class="section-placeholder">
+    <div class="placeholder-content">
+      <h2>Blog</h2>
+      <p>This section will contain your articles and blog posts.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section-placeholder">
+    <div class="placeholder-content">
+      <h2>Contact Information</h2>
+      <p>This section will have your contact form and details.</p>
+    </div>
+  </section>
+
+  <router-outlet />
 </main>
 
-<router-outlet />
+<app-footer></app-footer>

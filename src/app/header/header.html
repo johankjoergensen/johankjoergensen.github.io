@@ -1,0 +1,32 @@
+<header class="main-header" [class.scrolled]="isScrolled">
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo/Brand -->
+      <div class="nav-brand">
+        <a href="#home" class="brand-link">{{ brandName }}</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button class="mobile-menu-btn" 
+              [class.active]="isMobileMenuOpen" 
+              (click)="toggleMobileMenu()"
+              aria-label="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Navigation Menu -->
+      <ul class="nav-menu" [class.active]="isMobileMenuOpen">
+        <li class="nav-item" *ngFor="let item of navigationItems">
+          <a [href]="'#' + item.id" 
+             class="nav-link" 
+             [class.active]="activeSection === item.id"
+             (click)="onNavClick(item.id)">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
