@@ -8,10 +8,7 @@ export default defineConfig(({ command }) => ({
   plugins: [
     vue(),
     vuetify({
-      autoImport: true,
-      theme: {
-        defaultTheme: 'light'
-      }
+      autoImport: true
     })
   ],
   resolve: {

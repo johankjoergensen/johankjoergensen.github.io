@@ -1,11 +1,12 @@
 <template>
   <v-app>
     <router-view />
+    <Taskbar />
   </v-app>
 </template>
 
 <script setup lang="ts">
-// Main app component - router handles the rest
+import Taskbar from './components/Taskbar.vue'
 </script>
 
 <style scoped>
